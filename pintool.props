@@ -2,49 +2,64 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <PINDIR>D:\tools\pin\pin-3.11-97998-g7ecce2dac-msvc-windows\pin-3.11-97998-g7ecce2dac-msvc-windows</PINDIR>
+    <PINDIR></PINDIR>
   </PropertyGroup>
   <PropertyGroup>
-    <TargetExt>.dll</TargetExt>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration">
-    <SpectreMitigation>false</SpectreMitigation>
+    <_PropertySheetDisplayName>jitterx86deb</_PropertySheetDisplayName>
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
       <AdditionalOptions>/GR- /GS- /EHs- /EHa- /FP:strict /Oi- /FIinclude/msvc_compat.h %(AdditionalOptions)</AdditionalOptions>
-      <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(PINDIR)\source\include\pin;$(PINDIR)\source\include\pin\gen;$(PINDIR)\source\tools\InstLib;$(PINDIR)\extras\xed-ia32\include\xed;$(PINDIR)\extras\components\include;$(PINDIR)\extras\stlport\include;$(PINDIR)\extras;$(PINDIR)\extras\libstdc++\include;$(PINDIR)\extras\crt\include;$(PINDIR)\extras\crt;$(PINDIR)\extras\crt\include\arch-x86;$(PINDIR)\extras\crt\include\kernel\uapi;$(PINDIR)\extras\crt\include\kernel\uapi\asm-x86;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(PINDIR)\source\include\pin;$(PINDIR)\source\include\pin\gen;$(PINDIR)\source\tools\InstLib;$(PINDIR)\extras\xed-ia32\include\xed;$(PINDIR)\extras\components\include;$(PINDIR)\extras\stlport\include;$(PINDIR)\extras;$(PINDIR)\extras\libstdc++\include;$(PINDIR)\extras\crt\include;$(PINDIR)\extras\crt;$(PINDIR)\extras\crt\include\arch-x86;$(PINDIR)\extras\crt\include\kernel\uapi;$(PINDIR)\extras\crt\include\kernel\uapi\asm-x86;$(PINDIR)\extras\xed-intel64\include\xed;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <SupportJustMyCode>false</SupportJustMyCode>
+      <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>TARGET_IA32;HOST_IA32;TARGET_WINDOWS;WIN32;__PIN__=1;PIN_CRT=1;__i386__</PreprocessorDefinitions>
-      <MinimalRebuild>false</MinimalRebuild>
-      <ExceptionHandling>
-      </ExceptionHandling>
+      <ExceptionHandling />
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4530;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
-      <AdditionalOptions>/export:main %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>pin.lib;xed.lib;pinvm.lib;kernel32.lib;pincrt.lib;ntdll-32.lib;crtbeginS.obj</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(PINDIR)\ia32\lib;$(PINDIR)\ia32\lib-ext;$(PINDIR)\extras\xed-ia32\lib;$(PINDIR)\ia32\runtime\pincrt;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Link>
+      <AdditionalDependencies>pin.lib;xed.lib;pinvm.lib;kernel32.lib;stlport-static.lib;m-static.lib;c-static.lib;os-apis.lib;ntdll-32.lib;crtbeginS.obj</AdditionalDependencies>
+    </Link>
+    <Link>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+    </Link>
+    <Link>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Link>
+    <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Link>
       <SubSystem>NotSet</SubSystem>
+    </Link>
+    <Link>
       <OptimizeReferences>false</OptimizeReferences>
+    </Link>
+    <Link>
       <EntryPointSymbol>Ptrace_DllMainCRTStartup%4012</EntryPointSymbol>
+    </Link>
+    <Link>
       <BaseAddress>0x55000000</BaseAddress>
-      <TargetMachine>MachineX86</TargetMachine>
-      <AllowIsolation>true</AllowIsolation>
+    </Link>
+    <Link>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+    <Link>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <Link>
+      <AdditionalOptions>/export:main %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
