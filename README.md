@@ -20,4 +20,4 @@ To use this sheet:
 9. Go back to the main solution explorer
 10. Either create or add the source file that contains your pintool code
 
-The "pintool.prop" file is for x86 builds. Eventually, I'll add an x64 property sheet, but the x86 sheet can be easily modifed to work with x64.
+The "pintool.prop" file is for x86 builds. Eventually, I'll add an x64 property sheet, but the x86 sheet can easily be modifed to work with x64.
